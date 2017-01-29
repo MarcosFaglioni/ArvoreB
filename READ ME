@@ -1,0 +1,31 @@
+Trabalho apresentado a disciplina de Organização e Recuperação da informação, ministrada pelo docente Jander Moreira, na Universidade Federal de São Carlos - UFSCar
+
+Objetivo: Criar um programa que implemente as funções de busca e inserção numa árvore B. Para tanto, implicitamente é dada a necessidade de implementar a função de criar uma árvore B.
+
+Data: 25/01/2017
+
+Autores:                         RA:
+Bruna Zamith Santos                 628093
+Leonardo Utida						628182
+Marcos Augusto Faglioni             628301
+
+
+-------------------MANUAL------------------------------------------------------------------------------------------------------------------------------------------------
+Este programa esta implementado para ser executado em plataformas WINDOWS (Testado em Windows 7, 8 e 10), foi também testado para plataforma linux (Testado em Mint 17+ e Ubuntu 14.4+), Mac IOS não foi testado.
+
+
+Para utilizar o programa, basta executar "ArvoreB.exe". Em seguida estão os comandos aceitos pelo programa:
+Todos os comandos devem ser precedidos pela chamada arvoreB:
+
+arvoreB -h []		- Exibe um menu de ajuda, com todas as possiveis funções
+arvoreB -t [int]	- Inicializa a arvore definindo o grau minimo [int]
+
+Caso o usuário insira um comando inválido (ou seja, diferente dos dois listados acima), é dada a opção do usuário digitar novamente (até que ele insira um comando válido)
+
+Após a inicialização (criação) da árvore, o usuário deve novamente digitar algum dos comandos a seguir:
+1	- Chama a função de Insercao
+2	- Chama a função de Busca
+3	- Chama a função Sair (encerra o programa)
+
+Tanto para a função inserção quanto para a função de busca, é solicitado que o usuário insira um valor (chave), que pode ser decimal (float)
+
