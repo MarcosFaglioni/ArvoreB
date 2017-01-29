@@ -1,7 +1,7 @@
 /*TRABALHO 2 DE ORI - ÁRVORES B */
 /*ALUNOS: Bruna Zamith, RA: 628093
 Leonardo Utida, RA: 628182
-Marcos Faglioni, RA:
+Marcos Faglioni, RA: 628301
 */
 #include <stdio.h>
 #include <stdlib.h>
