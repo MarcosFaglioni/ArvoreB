@@ -1,9 +1,8 @@
 void divida(No* atual, float novaChave, No* dir, No* novo, float* promovida){
     criaNoFolha(atual->ordem, &novo);
     novo->tipo = atual->tipo;
-    int m, pos1;
+    int m;
     m = floor((atual->ordem)/2);
-    pos1 = m;
     if(novaChave < atual->elementos[m]){
         int i;
         int pos = 0;
@@ -27,6 +26,7 @@ void divida(No* atual, float novaChave, No* dir, No* novo, float* promovida){
         }
         insere(&novo, novaChave);
     }
-    promovida = atual[pos1];
+    novo->filhos[0] = atual->filhos[atual->nElementos];
+    promovida = atual[atual->nElementos-1];
     atual->nElementos--;
 }
