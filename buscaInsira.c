@@ -1,5 +1,5 @@
-int BusqueEInsira(No* atual, float chave, int promocao, float promovida, No* novo){
-    if(BuscaBin(*atual, chave)){
+int BusqueEInsira(No atual, float chave, int promocao, float promovida, No* novo){
+    if(BuscaBin(atual, chave)){
         printf("ERRO: Chave ja esta na arvore\n");
         return 0;
     }else{
