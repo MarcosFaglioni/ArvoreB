@@ -1,18 +1,18 @@
-int BusqueEInsira(No atual, float chave, int promocao, float promovida, No* novo){
-    if(BuscaBin(atual, chave)){
+int BusqueEInsira(No atual, float chave, int promocao, float promovida, No novo){
+    if(BuscaBin(atual, chave)){ //Busca a chave no nó, se ela estiver presente, não insere
         printf("ERRO: Chave ja esta na arvore\n");
         return 0;
-    }else{
-        if(atual->tipo == 1){
-            if(atual->nElementos < atual->ordem-1){
-                insere(atual, chave);
-                promocao = 0;
-            }else{
-                //divida(atual, chave);
-                promocao = 1;
+    }else{ //Senão
+        if(atual->tipo == 1){ //Se for nó folha
+            if(atual->nElementos < atual->ordem-1){ //Se o nó não estiver cheio
+                insere(atual, chave); //só insere
+                promocao = 0; //Não promove nenhum
+            }else{ //Senão
+                //divida(atual, chave); //faz a divisão do nó
+                promocao = 1; //promove
             }
-            return 1;
-        }else{
+            return 1; //retorna 1, inseriu
+        }else{ // Se não for nó folha
             int i;
             for(i = 0; i < atual->nElementos;i++){ //busca o filho correto para descer
                 if(chave < atual->elementos[i]){
