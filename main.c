@@ -6,6 +6,7 @@ Marcos Faglioni, RA: 628301
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include "funcoes.h"
 
 ///*****************************************************************///
 ///FUNÇÃO PRINCIPAL///
