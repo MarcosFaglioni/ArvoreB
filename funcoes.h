@@ -75,6 +75,15 @@ void criaArvoreB(int ordem, No* raiz){ //para criar a arvore, trata o nó raiz
 }
 
 /*Função cria Nó*/
+void criaNo(int ordem, No* no){
+    no->ordem = ordem;
+    no->elementos = (float*)malloc((ordem -1) * sizeof(float));
+    no->filhos = (No*)malloc((ordem) * sizeof(No));
+    no->nElementos = 0;
+    no->tipo = 1; //folha
+}
+
+/*Função cria Nó*/
 void criaNoFolha(int ordem, No* no){ //para criar o nó
     no->ordem = ordem; //ordem do nó
     no->elementos = (float*)malloc((ordem -1) * sizeof(float)); //numero de elementos maximo = ordem - 1
