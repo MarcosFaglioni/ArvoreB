@@ -18,7 +18,7 @@ A busca encerra se não tiver elementos (retorna 0 = não achou), quando o eleme
 Então, para a função busca, o usuário deve digitar o valor (chave) que se deseja buscar na árvore B.
 A primeira chamada passa o ponteiro para o nó raiz. 
 Então é feita a verificação do número de elementos neste nó. Se for igual a zero, então a árvore não contém elementos e a função retorna 0 (não achou). 
-Então a função passa a ser chamada recursivamente. A chave é procurada no nó atual e, se não for encontrada, é feita a decisão de ir para o nó à direita ou para
+Caso contrário a função passa a ser chamada recursivamente. A chave é procurada no nó atual e, se não for encontrada, é feita a decisão de ir para o nó à direita ou para
 o nó à esquerda do elemento. 
 
 Essa decisão é feita da seguinte forma: *****************************
