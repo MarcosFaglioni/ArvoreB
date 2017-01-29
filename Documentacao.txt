@@ -12,19 +12,24 @@ Marcos Augusto Faglioni             628301
 -----------------------------------------------------------------DOCUMENTAÇÃO--------------------------------------------------------------------------------
 /*Função BUSCA*/
 A busca na árvore B funciona de maneira similar à uma árvore de busca, isto é: Inicia-se na raiz e então decide se continua a busca no nó à direita ou no nó à
-esquerda. A partir de então, ele faz uma busca binária no nó atual, e, caso não encontre a chave, decide, se continua no nó à direita do elemento atual ou no nó à esquerda do elemento atual. 
+esquerda. A partir de então, ele analisa cada elemento do nó atual, e decide, da mesma forma, se continua no nó à direita do elemento atual ou no nó à esquerda do elemento atual. 
 A busca encerra se não tiver elementos (retorna 0 = não achou), quando o elemento é encontrado (retorna 1 = achou) ou quando chega a um nó folha e este nó não é a chave que se busca (retorna 0 = não achou). 
 
 Então, para a função busca, o usuário deve digitar o valor (chave) que se deseja buscar na árvore B.
-A primeira chamada passa o ponteiro para o nó raiz. 
-Então é feita a verificação do número de elementos neste nó. Se for igual a zero, então a árvore não contém elementos e a função retorna 0 (não achou). 
-Caso contrário a função passa a ser chamada recursivamente. A chave é procurada no nó atual e, se não for encontrada, é feita a decisão de ir para o nó à direita ou para
-o nó à esquerda do elemento. 
+A busca vai ocorrer com os seguintes passos:
 
-Essa decisão é feita da seguinte forma: *****************************
+1. A primeira chamada passa o ponteiro nó atual para o nó raiz
+2. Se o nó atual não tiver elementos (atual.nElementos == 0), então a chave não está na arvóre e retorna zero. 
+3. Senão: É feita a busca binária da chave no nó atual
+3.1 Se a chave está no nó, ela foi encontrada e retorna 1
+3.2 Senão: a chave não está no nó atual
+3.2.1 Se o nó atual for do tipo folha, não se pode continuar a busca, a chave não foi encontrada, retorna 0
+3.2.2 Senão: Não é do tipo folha e pode continuar a busca (na esquerda ou na direita)
+3.2.2.1 É feita a decisão se continua pelo nó à direita ou à esquerda e de qual elemento
+3.2.2.2 A função é chamada recursivamente
 
-Caso chegue a um nó folha (struct No -> int tipo), retorna 0 também e a recursão acaba. 
 
 /*Função INSERE*/
 bla bla bla
+
 
