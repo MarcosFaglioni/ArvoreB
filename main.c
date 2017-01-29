@@ -8,8 +8,7 @@ Marcos Faglioni, RA: 628301
 #include <string.h>
 
 /*Define a estrutura do Nó da Arvore B*/
-typedef struct noArvore No;
-
+    typedef struct noArvore No;
     struct noArvore{
     int nElementos;
     int* elementos;
@@ -17,16 +16,16 @@ typedef struct noArvore No;
     int ehFolha;
     int ehRaiz;
     int ordem;
-};
+    };
 
 /*Define a estrutura da Arvore B*/
-typedef struct{
+    typedef struct{
     No raiz;
     int ordem;
-}Arvore;
+    }Arvore;
 
-/*Protótipo das Funções*/
-
+///*****************************************************************///
+///PROTÓTIPO DAS FUNÇÕES///
 /*Função "entradaComandoInicial"
 Recebe os primeiros comandos do usuário;
 Retorna 0 se for a tela help, ou comando 1 se for a inicialização da arvore
@@ -38,64 +37,31 @@ Recebe o segundo comando do usuário;
 Retorna 1 se for a tela insercao, ou comando 2 se for busca na arvore, ou 3 se o comando for encerrar programa*/
 int entradaComandoSecundario();
 
-
-/*Função "criaArvoreB"
+/*Função "criaArvoreB" e "criaNo"
 Cria a ArvoreB*/
 void criaArvoreB(int, No*);
-
 void criaNo(int, No*);
 
-int insere(No *atual, int chave);
+/*Função "insere"
+Chamada dentro da função insereRecursivo*/
+int insere(No *atual, float chave);
 
-int BuscaBin(No atual, int chave);
+/*Função "insereRecursivo"
+Recebe o No atual e faz a inserção*/
+int insereRecursivo(No *atual);
 
-int BuscaRecursiva(No atual, int chave);
+/*Função "buscaBin"
+Chamada dentro da função buscaRecursiva*/
+int BuscaBin(No atual, float chave);
 
-void split();
+/*Função "buscaRecursiva"
+Recebe a Arvore e faz a busca*/
+int BuscaRecursiva(No atual, float chave);
 
-void BusqueEInsira();
-
-int insereRecursivo(No *atual, int chave);
-
-
-/*Função "insereNaArvoreB"
-Recebe a Arvore e faz a inserção*/
-void insereNaArvoreB(Arvore*);
-
-/*Função "buscaNaArvoreB"
-Recebe a Arvore e faz a inserção*/
-void buscaNaArvoreB(Arvore*);
-
-/*Função principal*/
+///*****************************************************************///
+///FUNÇÃO PRINCIPAL///
 int main(){
-    //area de teste
-
-    No teste;
-    criaArvoreB(4, &teste);
-    criaNo(4, &teste.filhos[0]);
-    criaNo(4, &teste.filhos[1]);
-    criaNo(4, &teste.filhos[2]);
-
-    insere(&teste, 10);
-    insere(&teste, 20);
-
-    insere(&teste.filhos[0], 2);
-    insere(&teste.filhos[0], 1);
-    insere(&teste.filhos[1], 11);
-    insere(&teste.filhos[1], 12);
-    insere(&teste.filhos[2], 21);
-    insere(&teste.filhos[2], 22);
-
-
-    if(BuscaRecursiva(teste, 10)){
-        printf("ACHOU\n");
-    }else{
-        printf("NAO ACHOU T.T\n");
-    }
-
-
-
-
+    /*Chama o menu inicial (recebe o comando do usuário)*/
     printf("****Programa ArvoreB****\nComandos:\narvoreB -t [int] >> Inicializa a arvore definindo o grau minimo [int]\narvoreB -h [] >> Abre o menu de instrucoes\nDigite o Comando:\n");
     int comando,ordem; //cria os inteiros que receberão o comando e a ordem minima da arvore
     comando=entradaComandoInicial(&ordem); //recebe comando do usuario
@@ -104,23 +70,37 @@ int main(){
         printf("\n\nO programa arvoreB cria uma arvore B.\nPara inicializar, digite arvoreB -t [int], definindo o grau minimo [int]\nDigite o Comando:\n");
         comando=entradaComandoInicial(&ordem); //recebe novamenete o comando do usuario
     }
+
+    /*Cria a ArvoreB*/
     Arvore arv;
     No raiz;
     criaArvoreB(ordem, &raiz); //cria a Arvore B
+
+    /*Chama o menu secundário (recebe o comando do usuario)*/
     comando = entradaComandoSecundario(); //chama o comando secundario do usuario (insercao, busca ou sair)
-    if(comando==1){
-        insereNaArvoreB(&arv); //insere na arvore
-    }
-    if(comando==2){
-        buscaNaArvoreB(&arv); //busca na arvore
-    }
-    if(comando==3){ //encerra o programa
-        return 0;
+
+    No teste;
+
+    while(comando=3){
+        if(comando==1){ //se o comando for 1 (insere)
+            insereRecursivo(&teste); //insere na arvore
+        }
+        if(comando==2){ //se o comando for 2 (busca)
+            float chave;
+            printf("Digite o valor que deseja buscar: ");
+            scanf("%d", &chave);
+            //BuscaRecursiva(&teste, chave); //busca na arvore
+        }
+        if(comando==3){ //encerra o programa
+            return 0;
+        }
     }
 
     return 0;
 }
 
+///*****************************************************************///
+///FUNÇÕES///
 /*Função verifica entrada do comando inicial*/
 int entradaComandoInicial(int *ordem){
     char entrada[20];
@@ -178,49 +158,24 @@ int entradaComandoSecundario(){
 /*Função cria a ArvoreB*/
 void criaArvoreB(int ordem, No* raiz){
     raiz->ordem = ordem;
-    raiz->elementos = (int*)malloc((ordem -1) * sizeof(int));
+    raiz->elementos = (float*)malloc((ordem -1) * sizeof(float));
     raiz->filhos = (No*)malloc((ordem) * sizeof(No));
     raiz->ehFolha = 0;
     raiz->ehRaiz = 1;
     raiz->nElementos = 0;
 }
 
+/*Função cria Nó*/
 void criaNo(int ordem, No* no){
     no->ordem = ordem;
-    no->elementos = (No*)malloc((ordem -1) * sizeof(No));
+    no->elementos = (float*)malloc((ordem -1) * sizeof(float));
     no->filhos = (No*)malloc((ordem) * sizeof(No));
     no->nElementos = 0;
     no->ehFolha = 1;
 }
 
-int insere(No *atual, int chave){
-    if(atual->nElementos == atual->ordem -1){
-        printf("ERRO:O vetor esta cheio\n");
-        return 0;
-    }
-    else {
-        if(atual->nElementos == 0){
-        atual->elementos[0] = chave;
-        atual->nElementos = 1;
-        }
-        else{
-            int i = 0;
-            while(atual->elementos[i] < chave && i < atual->nElementos){ //inserir na pos i+1
-                i++;
-            }
-            int c;
-            for(c = atual->nElementos; c > i; c--){
-                atual->elementos[c] = atual->elementos[c-1];
-            }
-            atual->elementos[i] = chave;
-            atual->nElementos++;
-        }
-        return 1;
-    }
-}
-
-
-int BuscaBin(No atual, int chave){
+/*Função BuscaBin*/
+int BuscaBin(No atual, float chave){
     int p, u, m;
     p=0;
     u = atual.nElementos -1;
@@ -262,7 +217,8 @@ int BuscaBin(No atual, int chave){
     }
 }
 
-int BuscaRecursiva(No atual, int chave){
+/*Função BuscaRecursiva*/
+int BuscaRecursiva(No atual, float chave){
     if(atual.nElementos == 0){
         return 0;
     }else{
@@ -285,22 +241,39 @@ int BuscaRecursiva(No atual, int chave){
 
 }
 
+/*Função insere*/
+int insere(No *atual, float chave){
+    if(atual->nElementos == atual->ordem -1){
+        printf("ERRO:O vetor esta cheio\n");
+        return 0;
+    }
+    else {
+        if(atual->nElementos == 0){
+        atual->elementos[0] = chave;
+        atual->nElementos = 1;
+        }
+        else{
+            int i = 0;
+            while(atual->elementos[i] < chave && i < atual->nElementos){ //inserir na pos i+1
+                i++;
+            }
+            int c;
+            for(c = atual->nElementos; c > i; c--){
+                atual->elementos[c] = atual->elementos[c-1];
+            }
+            atual->elementos[i] = chave;
+            atual->nElementos++;
+        }
+        return 1;
+    }
+}
 
 /*Função de Insercao na Arvore B*/
-void insereNaArvoreB(Arvore* arv){
-    float valor;
+int insereRecursivo(No *atual){
+    float chave;
     printf("Digite o valor que deseja inserir: ");
-    scanf("%d", &valor);
-}
+    scanf("%d", &chave);
 
-/*Função de Insercao na Arvore B*/
-void buscaNaArvoreB(Arvore* arv){
-    float valor;
-    printf("Digite o valor que deseja buscar: ");
-    scanf("%d", &valor);
-}
-
-int insereRecursivo(No *atual, int chave){
     if(atual->nElementos == 0){
         insere(atual, chave);
         return 1;
@@ -308,3 +281,4 @@ int insereRecursivo(No *atual, int chave){
 
     }
 }
+
