@@ -11,18 +11,11 @@ Marcos Faglioni, RA: 628301
     typedef struct noArvore No;
     struct noArvore{
     int nElementos;
-    int* elementos;
+    float* elementos;
     No* filhos;
     int tipo; //0-> raiz // 1->folha // 2-> meio
     int ordem;
     };
-
-/*Define a estrutura da Arvore B*/
-    typedef struct{
-    No raiz;
-    int ordem;
-    }Arvore;
-
 ///*****************************************************************///
 ///PROTÓTIPO DAS FUNÇÕES///
 /*Função "entradaComandoInicial"
@@ -45,6 +38,8 @@ void criaNo(int, No*);
 Chamada dentro da função insereRecursivo*/
 int insere(No *atual, float chave);
 
+int BusqueEInsira(No* atual, float chave, int promocao, float promovida, No* novo);
+
 /*Função "insereRecursivo"
 Recebe o No atual e faz a inserção*/
 int insereRecursivo(No *atual);
@@ -60,37 +55,6 @@ int BuscaRecursiva(No atual, float chave);
 ///*****************************************************************///
 ///FUNÇÃO PRINCIPAL///
 int main(){
-
-    No teste1;
-    criaArvoreB(4, &teste1);
-    criaNo(4, &teste1.filhos[0]);
-    criaNo(4, &teste1.filhos[1]);
-    criaNo(4, &teste1.filhos[2]);
-
-    insere(&teste1, 10);
-    insere(&teste1, 20);
-
-    insere(&teste1.filhos[0], 2);
-    insere(&teste1.filhos[0], 1);
-    insere(&teste1.filhos[1], 11);
-    insere(&teste1.filhos[1], 12);
-    insere(&teste1.filhos[2], 21);
-    insere(&teste1.filhos[2], 22);
-
-
-    if(BuscaRecursiva(teste1, 21)){
-        printf("ACHOU\n");
-    }else{
-        printf("NAO ACHOU T.T\n");
-    }
-
-
-
-
-
-
-
-
     /*Chama o menu inicial (recebe o comando do usuário)*/
     printf("****Programa ArvoreB****\nComandos:\narvoreB -t [int] >> Inicializa a arvore definindo o grau minimo [int]\narvoreB -h [] >> Abre o menu de instrucoes\nDigite o Comando:\n");
     int comando,ordem; //cria os inteiros que receberão o comando e a ordem minima da arvore
@@ -102,7 +66,6 @@ int main(){
     }
 
     /*Cria a ArvoreB*/
-    Arvore arv;
     No raiz;
     criaArvoreB(ordem, &raiz); //cria a Arvore B
 
@@ -297,6 +260,21 @@ int insere(No *atual, float chave){
         return 1;
     }
 }
+
+int BusqueEInsira(No* atual, float chave, int promocao, float promovida, No* novo){
+    if(BuscaBin(*atual, chave)){
+        printf("ERRO: Chave ja esta na arvore\n");
+        return 0;
+    }else{
+        if(atual->tipo == 1){
+            if(atual->nElementos < atual->ordem-1){
+                insere(atual, chave);
+            }
+        }
+    }
+}
+
+
 
 /*Função de Insercao na Arvore B*/
 int insereRecursivo(No *atual){
