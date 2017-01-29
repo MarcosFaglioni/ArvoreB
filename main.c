@@ -13,8 +13,7 @@ Marcos Faglioni, RA: 628301
     int nElementos;
     int* elementos;
     No* filhos;
-    int ehFolha;
-    int ehRaiz;
+    int tipo; //0-> raiz // 1->folha // 2-> meio
     int ordem;
     };
 
@@ -61,6 +60,37 @@ int BuscaRecursiva(No atual, float chave);
 ///*****************************************************************///
 ///FUNÇÃO PRINCIPAL///
 int main(){
+
+    No teste1;
+    criaArvoreB(4, &teste1);
+    criaNo(4, &teste1.filhos[0]);
+    criaNo(4, &teste1.filhos[1]);
+    criaNo(4, &teste1.filhos[2]);
+
+    insere(&teste1, 10);
+    insere(&teste1, 20);
+
+    insere(&teste1.filhos[0], 2);
+    insere(&teste1.filhos[0], 1);
+    insere(&teste1.filhos[1], 11);
+    insere(&teste1.filhos[1], 12);
+    insere(&teste1.filhos[2], 21);
+    insere(&teste1.filhos[2], 22);
+
+
+    if(BuscaRecursiva(teste1, 21)){
+        printf("ACHOU\n");
+    }else{
+        printf("NAO ACHOU T.T\n");
+    }
+
+
+
+
+
+
+
+
     /*Chama o menu inicial (recebe o comando do usuário)*/
     printf("****Programa ArvoreB****\nComandos:\narvoreB -t [int] >> Inicializa a arvore definindo o grau minimo [int]\narvoreB -h [] >> Abre o menu de instrucoes\nDigite o Comando:\n");
     int comando,ordem; //cria os inteiros que receberão o comando e a ordem minima da arvore
@@ -161,8 +191,7 @@ void criaArvoreB(int ordem, No* raiz){
     raiz->ordem = ordem;
     raiz->elementos = (float*)malloc((ordem -1) * sizeof(float));
     raiz->filhos = (No*)malloc((ordem) * sizeof(No));
-    raiz->ehFolha = 0;
-    raiz->ehRaiz = 1;
+    raiz->tipo = 0; //raiz
     raiz->nElementos = 0;
 }
 
@@ -172,7 +201,7 @@ void criaNo(int ordem, No* no){
     no->elementos = (float*)malloc((ordem -1) * sizeof(float));
     no->filhos = (No*)malloc((ordem) * sizeof(No));
     no->nElementos = 0;
-    no->ehFolha = 1;
+    no->tipo = 1; //folha
 }
 
 /*Função BuscaBin*/
@@ -226,7 +255,7 @@ int BuscaRecursiva(No atual, float chave){
         if(BuscaBin(atual, chave)){
             return 1;
         }else{
-            if(atual.ehFolha == 1){
+            if(atual.tipo == 1){
                 return 0;
             }else{
                 int i;
@@ -282,4 +311,3 @@ int insereRecursivo(No *atual){
 
     }
 }
-
