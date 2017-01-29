@@ -1,0 +1,18 @@
+Trabalho apresentado a disciplina de Organização e Recuperação da informação, ministrada pelo docente Jander Moreira, na Universidade Federal de São Carlos - UFSCar
+
+Objetivo: Criar um programa que implemente as funções de busca e inserção numa árvore B. Para tanto, implicitamente é dada a necessidade de implementar a função de criar uma árvore B.
+
+Data: 25/01/2017
+
+Autores:                         RA:
+Bruna Zamith Santos                 628093
+Leonardo Utida                      628182
+Marcos Augusto Faglioni             628301
+
+-----------------------------------------------------------------DOCUMENTAÇÃO--------------------------------------------------------------------------------
+/*Função INSERE*/
+bla bla bla
+
+
+/*Função BUSCA*/
+bla bla bla
