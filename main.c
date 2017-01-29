@@ -81,7 +81,7 @@ int main(){
 
     No teste;
 
-    while(comando=3){
+    while(comando!=3){
         if(comando==1){ //se o comando for 1 (insere)
             insereRecursivo(&teste); //insere na arvore
         }
@@ -94,6 +94,7 @@ int main(){
         if(comando==3){ //encerra o programa
             return 0;
         }
+        comando = entradaComandoSecundario(); //chama o comando secundario do usuario (insercao, busca ou sair)
     }
 
     return 0;
