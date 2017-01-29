@@ -10,9 +10,21 @@ Leonardo Utida                      628182
 Marcos Augusto Faglioni             628301
 
 -----------------------------------------------------------------DOCUMENTAÇÃO--------------------------------------------------------------------------------
+/*Função BUSCA*/
+A busca na árvore B funciona de maneira similar à uma árvore de busca, isto é: Inicia-se na raiz e então decide se continua a busca no nó à direita ou no nó à
+esquerda. A partir de então, ele analisa cada elemento do nó atual, e decide, da mesma forma, se continua no nó à direita do elemento atual ou no nó à esquerda do elemento atual. 
+A busca encerra se não tiver elementos (retorna 0 = não achou), quando o elemento é encontrado (retorna 1 = achou) ou quando chega a um nó folha e este nó não é a chave que se busca (retorna 0 = não achou). 
+
+Então, para a função busca, o usuário deve digitar o valor (chave) que se deseja buscar na árvore B.
+A primeira chamada passa o ponteiro para o nó raiz. 
+Então é feita a verificação do número de elementos neste nó. Se for igual a zero, então a árvore não contém elementos e a função retorna 0 (não achou). 
+Então a função passa a ser chamada recursivamente. A chave é procurada no nó atual e, se não for encontrada, é feita a decisão de ir para o nó à direita ou para
+o nó à esquerda do elemento. 
+
+Essa decisão é feita da seguinte forma: *****************************
+
+Caso chegue a um nó folha (struct No -> int tipo), retorna 0 também e a recursão acaba. 
+
 /*Função INSERE*/
 bla bla bla
 
-
-/*Função BUSCA*/
-bla bla bla
