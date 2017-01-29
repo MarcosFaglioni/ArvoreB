@@ -1,0 +1,24 @@
+    //area de teste
+
+    No teste;
+    criaArvoreB(4, &teste);
+    criaNo(4, &teste.filhos[0]);
+    criaNo(4, &teste.filhos[1]);
+    criaNo(4, &teste.filhos[2]);
+
+    insere(&teste, 10);
+    insere(&teste, 20);
+
+    insere(&teste.filhos[0], 2);
+    insere(&teste.filhos[0], 1);
+    insere(&teste.filhos[1], 11);
+    insere(&teste.filhos[1], 12);
+    insere(&teste.filhos[2], 21);
+    insere(&teste.filhos[2], 22);
+
+
+    if(BuscaRecursiva(teste, 20)){
+        printf("ACHOU\n");
+    }else{
+        printf("NAO ACHOU T.T\n");
+    }
