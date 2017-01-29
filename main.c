@@ -1,4 +1,4 @@
-/*TRABALHO 2 DE ORI - ¡RVORES B */
+/*TRABALHO 2 DE ORI - √ÅRVORES B */
 /*ALUNOS: Bruna Zamith, RA: 628093
 Leonardo Utida, RA: 628182
 Marcos Faglioni, RA:
@@ -7,8 +7,8 @@ Marcos Faglioni, RA:
 #include <stdlib.h>
 #include <string.h>
 
-/*Define a estrutura do NÛ da Arvore B*/
-    typedef struct noArvore No;
+/*Define a estrutura do N√≥ da Arvore B*/
+typedef struct noArvore No;
 
     struct noArvore{
     int nElementos;
@@ -17,29 +17,29 @@ Marcos Faglioni, RA:
     int ehFolha;
     int ehRaiz;
     int ordem;
-    };
+};
 
 /*Define a estrutura da Arvore B*/
-    typedef struct{
+typedef struct{
     No raiz;
     int ordem;
-    }Arvore;
+}Arvore;
 
-/*ProtÛtipo das FunÁıes*/
+/*Prot√≥tipo das Fun√ß√µes*/
 
-/*FunÁ„o "entradaComandoInicial"
-Recebe os primeiros comandos do usu·rio;
-Retorna 0 se for a tela help, ou comando 1 se for a inicializaÁ„o da arvore
-Por referÍncia, o inteiro referente ‡ ordem da ·rvore È retornado*/
+/*Fun√ß√£o "entradaComandoInicial"
+Recebe os primeiros comandos do usu√°rio;
+Retorna 0 se for a tela help, ou comando 1 se for a inicializa√ß√£o da arvore
+Por refer√™ncia, o inteiro referente √† ordem da √°rvore √© retornado*/
 int entradaComandoInicial(int*);
 
-/*FunÁ„o "entradaComandoSecundario"
-Recebe o segundo comando do usu·rio;
+/*Fun√ß√£o "entradaComandoSecundario"
+Recebe o segundo comando do usu√°rio;
 Retorna 1 se for a tela insercao, ou comando 2 se for busca na arvore, ou 3 se o comando for encerrar programa*/
 int entradaComandoSecundario();
 
 
-/*FunÁ„o "criaArvoreB"
+/*Fun√ß√£o "criaArvoreB"
 Cria a ArvoreB*/
 void criaArvoreB(int, No*);
 
@@ -58,15 +58,15 @@ void BusqueEInsira();
 int insereRecursivo(No *atual, int chave);
 
 
-/*FunÁ„o "insereNaArvoreB"
-Recebe a Arvore e faz a inserÁ„o*/
+/*Fun√ß√£o "insereNaArvoreB"
+Recebe a Arvore e faz a inser√ß√£o*/
 void insereNaArvoreB(Arvore*);
 
-/*FunÁ„o "buscaNaArvoreB"
-Recebe a Arvore e faz a inserÁ„o*/
+/*Fun√ß√£o "buscaNaArvoreB"
+Recebe a Arvore e faz a inser√ß√£o*/
 void buscaNaArvoreB(Arvore*);
 
-/*FunÁ„o principal*/
+/*Fun√ß√£o principal*/
 int main(){
     //area de teste
 
@@ -97,7 +97,7 @@ int main(){
 
 
     printf("****Programa ArvoreB****\nComandos:\narvoreB -t [int] >> Inicializa a arvore definindo o grau minimo [int]\narvoreB -h [] >> Abre o menu de instrucoes\nDigite o Comando:\n");
-    int comando,ordem; //cria os inteiros que receber„o o comando e a ordem minima da arvore
+    int comando,ordem; //cria os inteiros que receber√£o o comando e a ordem minima da arvore
     comando=entradaComandoInicial(&ordem); //recebe comando do usuario
 
     while(comando==0){//se o comando for a tela help
@@ -121,7 +121,7 @@ int main(){
     return 0;
 }
 
-/*FunÁ„o verifica entrada do comando inicial*/
+/*Fun√ß√£o verifica entrada do comando inicial*/
 int entradaComandoInicial(int *ordem){
     char entrada[20];
     char text[10];
@@ -130,7 +130,7 @@ int entradaComandoInicial(int *ordem){
     text[9]='\0';
     while(strcmp(text,"arvoreB -")){ //se os primeiros 9 caracteres forem "arvoreB -"
         while(entrada[9]!='t' && entrada[9]!='h'){ //se o 10o caracter for t ou h
-            printf("\nComando invalido, tente novamente\n"); //sen„o
+            printf("\nComando invalido, tente novamente\n"); //sen√£o
             gets(entrada);
             strncpy(text,entrada,9);
             text[9]='\0';
@@ -145,7 +145,7 @@ int entradaComandoInicial(int *ordem){
     }
 }
 
-/*FunÁ„o verifica entrada do comando inicial*/
+/*Fun√ß√£o verifica entrada do comando inicial*/
 int entradaComandoSecundario(){
     int opcao;
     while(opcao !=3){
@@ -175,7 +175,7 @@ int entradaComandoSecundario(){
         }
 }
 
-/*FunÁ„o cria a ArvoreB*/
+/*Fun√ß√£o cria a ArvoreB*/
 void criaArvoreB(int ordem, No* raiz){
     raiz->ordem = ordem;
     raiz->elementos = (int*)malloc((ordem -1) * sizeof(int));
@@ -286,14 +286,14 @@ int BuscaRecursiva(No atual, int chave){
 }
 
 
-/*FunÁ„o de Insercao na Arvore B*/
+/*Fun√ß√£o de Insercao na Arvore B*/
 void insereNaArvoreB(Arvore* arv){
     float valor;
     printf("Digite o valor que deseja inserir: ");
     scanf("%d", &valor);
 }
 
-/*FunÁ„o de Insercao na Arvore B*/
+/*Fun√ß√£o de Insercao na Arvore B*/
 void buscaNaArvoreB(Arvore* arv){
     float valor;
     printf("Digite o valor que deseja buscar: ");
