@@ -1,6 +1,6 @@
-Trabalho apresentado a disciplina de OrganizaÁ„o e RecuperaÁ„o da informaÁ„o, ministrada pelo docente Jander Moreira, na Universidade Federal de S„o Carlos - UFSCar
+Trabalho apresentado a disciplina de Organiza√ß√£o e Recupera√ß√£o da informa√ß√£o, ministrada pelo docente Jander Moreira, na Universidade Federal de S√£o Carlos - UFSCar
 
-Objetivo: Criar um programa que implemente as funÁıes de busca e inserÁ„o numa ·rvore B. Para tanto, implicitamente È dada a necessidade de implementar a funÁ„o de criar uma ·rvore B.
+Objetivo: Criar um programa que implemente as fun√ß√µes de busca e inser√ß√£o numa √°rvore B. Para tanto, implicitamente √© dada a necessidade de implementar a fun√ß√£o de criar uma √°rvore B.
 
 Data: 25/01/2017
 
@@ -9,22 +9,22 @@ Bruna Zamith Santos                 628093
 Leonardo Utida                      628182
 Marcos Augusto Faglioni             628301
 
------------------------------------------------------------------DOCUMENTA«√O--------------------------------------------------------------------------------
-/*FunÁ„o BUSCA*/
-A busca na ·rvore B funciona de maneira similar ‡ uma ·rvore de busca, isto È: Inicia-se na raiz e ent„o decide se continua a busca no nÛ ‡ direita ou no nÛ ‡
-esquerda. A partir de ent„o, ele analisa cada elemento do nÛ atual, e decide, da mesma forma, se continua no nÛ ‡ direita do elemento atual ou no nÛ ‡ esquerda do elemento atual. 
-A busca encerra se n„o tiver elementos (retorna 0 = n„o achou), quando o elemento È encontrado (retorna 1 = achou) ou quando chega a um nÛ folha e este nÛ n„o È a chave que se busca (retorna 0 = n„o achou). 
+-----------------------------------------------------------------DOCUMENTA√á√ÉO--------------------------------------------------------------------------------
+/*Fun√ß√£o BUSCA*/
+A busca na √°rvore B funciona de maneira similar √† uma √°rvore de busca, isto √©: Inicia-se na raiz e ent√£o decide se continua a busca no n√≥ √† direita ou no n√≥ √†
+esquerda. A partir de ent√£o, ele faz uma busca bin√°ria no n√≥ atual, e, caso n√£o encontre a chave, decide, se continua no n√≥ √† direita do elemento atual ou no n√≥ √† esquerda do elemento atual. 
+A busca encerra se n√£o tiver elementos (retorna 0 = n√£o achou), quando o elemento √© encontrado (retorna 1 = achou) ou quando chega a um n√≥ folha e este n√≥ n√£o √© a chave que se busca (retorna 0 = n√£o achou). 
 
-Ent„o, para a funÁ„o busca, o usu·rio deve digitar o valor (chave) que se deseja buscar na ·rvore B.
-A primeira chamada passa o ponteiro para o nÛ raiz. 
-Ent„o È feita a verificaÁ„o do n˙mero de elementos neste nÛ. Se for igual a zero, ent„o a ·rvore n„o contÈm elementos e a funÁ„o retorna 0 (n„o achou). 
-Ent„o a funÁ„o passa a ser chamada recursivamente. A chave È procurada no nÛ atual e, se n„o for encontrada, È feita a decis„o de ir para o nÛ ‡ direita ou para
-o nÛ ‡ esquerda do elemento. 
+Ent√£o, para a fun√ß√£o busca, o usu√°rio deve digitar o valor (chave) que se deseja buscar na √°rvore B.
+A primeira chamada passa o ponteiro para o n√≥ raiz. 
+Ent√£o √© feita a verifica√ß√£o do n√∫mero de elementos neste n√≥. Se for igual a zero, ent√£o a √°rvore n√£o cont√©m elementos e a fun√ß√£o retorna 0 (n√£o achou). 
+Ent√£o a fun√ß√£o passa a ser chamada recursivamente. A chave √© procurada no n√≥ atual e, se n√£o for encontrada, √© feita a decis√£o de ir para o n√≥ √† direita ou para
+o n√≥ √† esquerda do elemento. 
 
-Essa decis„o È feita da seguinte forma: *****************************
+Essa decis√£o √© feita da seguinte forma: *****************************
 
-Caso chegue a um nÛ folha (struct No -> int tipo), retorna 0 tambÈm e a recurs„o acaba. 
+Caso chegue a um n√≥ folha (struct No -> int tipo), retorna 0 tamb√©m e a recurs√£o acaba. 
 
-/*FunÁ„o INSERE*/
+/*Fun√ß√£o INSERE*/
 bla bla bla
 
