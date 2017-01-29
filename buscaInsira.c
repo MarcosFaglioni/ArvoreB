@@ -13,7 +13,7 @@ int BusqueEInsira(No atual, float chave, int promocao, float promovida, No novo)
             }
             return 1; //retorna 1, inseriu
         }else{ // Se não for nó folha
-            int i;
+            int i; 
             for(i = 0; i < atual->nElementos;i++){ //busca o filho correto para descer
                 if(chave < atual->elementos[i]){
                     break;
