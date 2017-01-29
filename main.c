@@ -8,14 +8,14 @@ Marcos Faglioni, RA: 628301
 #include <string.h>
 
 /*Define a estrutura do Nó da Arvore B*/
-    typedef struct noArvore No;
+typedef struct noArvore No;
     struct noArvore{
     int nElementos;
     float* elementos;
     No* filhos;
     int tipo; //0-> raiz // 1->folha // 2-> meio
     int ordem;
-    };
+};
 ///*****************************************************************///
 ///PROTÓTIPO DAS FUNÇÕES///
 /*Função "entradaComandoInicial"
