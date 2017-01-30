@@ -191,7 +191,7 @@ int main(){
     insereFinal(&raizz, 140);
     insereFinal(&raizz, 150);
     insereFinal(&raizz, 160);
-    //insereFinal(&raizz, 170);
+    insereFinal(&raizz, 170);
 
     int i;
     for(i = 0; i < raizz.nElementos; i++){
@@ -203,7 +203,7 @@ int main(){
     }
     for(i = 0; i < raizz.filhos[1].nElementos; i++){
         printf("Elementos do filho 2: %f\n", raizz.filhos[1].elementos[i]);
-    }
+    }/*
     for(i = 0; i < raizz.filhos[2].nElementos; i++){
         printf("Elementos do filho 3: %f\n", raizz.filhos[2].elementos[i]);
     }
@@ -212,10 +212,13 @@ int main(){
     }
     for(i = 0; i < raizz.filhos[4].nElementos; i++){
         printf("Elementos do filho 5: %f\n", raizz.filhos[4].elementos[i]);
+    }*/
+    for(i = 0; i < raizz.filhos[1].filhos[0].nElementos; i++){
+        printf("Elementos do filho do FIM: %f\n", raizz.filhos[1].filhos[0].elementos[i]);
     }
 
 
-    if(BuscaRecursiva(raizz, 160)){
+    if(BuscaRecursiva(raizz, 10)){
         printf("ACHOU\n");
     }else{
         printf("NAO ACHOU T.T\n");
@@ -561,7 +564,18 @@ int BusqueEInsira(No* atual, float chave, int* promocao, float* promovida, No* n
                 printf("O valor da promovida é: %f\n", *promovida);
                 printf("O valor da promovida2 é: %f\n", promovida);
                 divida(atual, *promovida, novo, &aux , promovida); //ACHO Q O PRBLEMA ESTA AQUI
-                novo = &aux;
+                int i;
+                for(i = 0; i<atual->nElementos; i++){
+                    printf("Elementos de ATUAL: %f\n", atual->elementos[i]);
+                }
+                for(i = 0; i<aux.nElementos; i++){
+                    printf("Elementos de AUX: %f\n", aux.elementos[i]);
+                }
+                for(i = 0; i<novo->nElementos; i++){
+                    printf("Elementos de NOVO: %f\n", novo->elementos[i]);
+                }
+                printf("Promovida eh: %f\n", *promovida);
+                *novo = aux;
             }
         }
         return status;
