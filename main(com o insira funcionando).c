@@ -9,17 +9,22 @@ Autores, Registro Acadêmico (RA):
 #include <stdlib.h>
 #include <string.h>
 
-/*Define a estrutura do Nó da Arvore B*/
-    typedef struct noArvore No;
-    struct noArvore{
+/*Definição do tipo de estrutura utilizada para o nó
+Dados:
+    int nElementos: Número de elementos no nó
+    float* elementos: Ponteiro para o ínicio do vetor contendo os elementos do nó
+    No* filhos: Ponteiro para o ínicio do vetor contendo os ponteiros para os nós filhos
+    int tipo: Ponteiro para o tipo de nó que é: 0 para um nó raiz; 1 para um nó folha; e 2 para um nó intermediário*/
+typedef struct noArvore No;
+struct noArvore{
     int nElementos;
     float* elementos;
     No* filhos;
-    int tipo; //0-> raiz // 1->folha // 2-> meio
+    int tipo;
     int ehRaiz;
     int ehFolha;
     int ordem;
-    };
+};
 ///*****************************************************************///
 ///PROTÓTIPO DAS FUNÇÕES///
 /*Função "entradaComandoInicial"
