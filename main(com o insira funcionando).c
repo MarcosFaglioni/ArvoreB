@@ -1,7 +1,9 @@
-/*TRABALHO 2 DE ORI - ÁRVORES B */
-/*ALUNOS: Bruna Zamith, RA: 628093
-Leonardo Utida, RA: 628182
-Marcos Faglioni, RA: 628301
+/*Trabalho sobre Árvore B, apresentado á disciplina de Organização e Recuperação de Informação, ministrada pelo docente Jander Moreira na Universidade Fedeal de São Carlos - UFSCar
+Data: 01 de Fevereiro de 2017
+Autores, Registro Acadêmico (RA):
+    Bruna Zamith, 628093
+    Leonardo Utida, 628182
+    Marcos Faglioni, 628301
 */
 #include <stdio.h>
 #include <stdlib.h>
