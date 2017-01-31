@@ -1,3 +1,14 @@
+/*Função: BuscaEInsere
+  Parametros formais:
+    No atual: Recebe o nó atual da busca;
+    float chave: Chave a ser inserida na árvore
+    int promocao: Caso promocao seja igual a 1, houve promoção e a árvore necessitará de ajustes; caso seja igual a 0, a inserção não causou promoção e não necessita de ajustes;
+    float promovida: Valor que sofreu a promoção
+    No novo: ##############################################################################
+  Retorno:
+    int : Caso retorno for igual a 1, a chave foi inserido com sucesso; Caso seja 0, houve problema na inserção da chave, e não foi inserido
+*/
+
 int BusqueEInsira(No atual, float chave, int promocao, float promovida, No novo){
     if(BuscaBin(atual, chave)){ //Busca a chave no nó, se ela estiver presente, não insere
         printf("ERRO: Chave ja esta na arvore\n");
