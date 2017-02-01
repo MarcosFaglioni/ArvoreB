@@ -371,7 +371,7 @@ Objetivo: Este método recebe como parametro a raiz da árvore. A partir deste, 
 Parametros formais:
 	No* raiz: Ponteiro para o nó que aponta para a raiz da árvore;
 	float chave: Contém o valor a ser inserido na árvore e é passado por valor;
-    No* inserido: Retorna um ponteiro para o nó que houve a inserção.
+    	No* inserido: Retorna um ponteiro para o nó que houve a inserção.
 Retornos:
 	Retorno inteiro, por valor, caso for inserido com sucesso, retorna 1, caso contrário, retorna 0.*/
 int insereFinal(No *raiz, float chave, No ** inserido){
@@ -408,7 +408,11 @@ int insereFinal(No *raiz, float chave, No ** inserido){
     }
 }
 
-//Função ImprimeNó
+/*Função "insereFinal"
+Objetivo: Este método imprime todos os elementos de um nó.
+	No* imprimir: ponteiro para o nó a ser impresso.
+Retornos:
+	Sem retorno.*/
 void imprimeNo(No* imprimir){
     int i;
     printf("No: (%.1f", imprimir->elementos[0]);
