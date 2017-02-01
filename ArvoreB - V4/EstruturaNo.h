@@ -1,3 +1,4 @@
+//Este código pertence ao arquivo main.c, referente a árvore B, elaborada especialmente para a disciplina de Organização e Recuperação de Informação, ministrada pelo docente Jander Moreira, na Universidade Federal de São Carlos. 
 /*Tipo de dado: No
 Objetivo: definir os tipos de dados utilizada na estrutura do nó
 Dados:
