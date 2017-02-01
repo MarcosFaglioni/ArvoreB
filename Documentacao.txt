@@ -2,21 +2,42 @@ Trabalho apresentado a disciplina de Organização e Recuperação da informaç�
 
 Objetivo: Criar um programa que implemente as funções de busca e inserção numa árvore B. Para tanto, implicitamente é dada a necessidade de implementar a função de criar uma árvore B.
 
-Data: 25/01/2017
+Data: 01/02/2017
 
-Autores:                         RA:
-Bruna Zamith Santos                 628093
-Leonardo Utida                      628182
-Marcos Augusto Faglioni             628301
+Autores:                            RA:           E-mail
+Bruna Zamith Santos                 628093        bruna.zamith@hotmail.com
+Leonardo Utida                      628182        leoutida@hotmail.com
+Marcos Augusto Faglioni             628301        marcosfagli@gmail.com
 
 -----------------------------------------------------------------DOCUMENTAÇÃO--------------------------------------------------------------------------------
-/*Função BUSCA*/
-A busca na árvore B funciona de maneira similar à uma árvore de busca, isto é: Inicia-se na raiz e então decide se continua a busca no nó à direita ou no nó à
-esquerda. A partir de então, ele analisa cada elemento do nó atual, e decide, da mesma forma, se continua no nó à direita do elemento atual ou no nó à esquerda do elemento atual. 
-A busca encerra se não tiver elementos (retorna 0 = não achou), quando o elemento é encontrado (retorna 1 = achou) ou quando chega a um nó folha e este nó não é a chave que se busca (retorna 0 = não achou). 
+Caracteristica do  programa
+  1. O programa foi ideializado para plataformas Linux (mint 17+ e Ubuntu 14+), e Windows (testado em Windows 10, com .exe gerado para todo Windows).
+  2. O programa trabalha com ordem da árvore dada por valores inteiros, e é possivel armazenar nos nós valores reais, com precisão float.
+  3. Este programa foi desenvolvido como proposta de trabalho de uma disciplina, pode ser consultado para obtenção de informações, mas não comercializado ou plagiado. 
+  4. (Caso este programa esteja sendo utilizado por terceiros) No cabeçario do documento há os nomes, e e-mails dos autores, que no caso de dúvidas ao utilizar o código, podem ser contactados.
 
-Então, para a função busca, o usuário deve digitar o valor (chave) que se deseja buscar na árvore B.
-A busca vai ocorrer com os seguintes passos:
+
+Início do programa
+
+  Ao ser íniciado, o programa apresenta duas situações:
+    arvoreB -t inteiro
+    arvoreB -h 
+  A primeira opção tem por objetivo alocar um nó raiz para a árvore, o inteiro, que sucede o comando "arvoreB -t" representa a ordem desta árvore¹. Ao ser criado, o nó raiz não possui nenhum elemento e todos os filhos apontam para nulo; O segundo comando apresentado acima disponibiliza ajuda, abrindo uma breve explicação de como o programa funciona.
+  Após essa etapa, caso o comando dado seja -t, a árvore será criada, e então será possível selecionar entre 3 opções: 1. Inserção; 2. Busca e 3. Sair. A seguir serão apresentados cada um dos comandos detalhadamente.
+
+Sintaxe a ser digitada pelo usuário:
+ arvoreB -t valor_inteiro
+ arvoreB -h
+ 
+¹Ordem da árvore: em uma árvore B, a ordem representa quantos filhos um nó pode ter, isso implica na quantidade de elementos, que é dado por ordem-1. Assim para uma árvore com ordem 5, existiram no máximo 5 caminhos a partir de cada nó, e 4 elementos por nó.
+
+
+Função BUSCA
+  A busca na árvore B funciona de maneira similar à uma árvore de busca, isto é: Inicia-se na raiz e então decide¹ se continua a busca no nó à direita ou no nó à esquerda. A partir de então, ele analisa cada elemento do nó atual, e decide, da mesma forma, se continua no nó à direita do elemento atual ou no nó à esquerda do elemento atual. 
+  A busca encerra se não tiver elementos ou quando chega a um nó folha e este nó não é a chave que se busca, em ambos os casos retornando 0, ou, no caso da busca encontrar o valor da chave, retorna 1.
+  Então, para a função busca, o usuário deve digitar o valor (chave) que se deseja buscar na árvore B, seguido o protótipo,
+após construir a árvore, no menu, o usuário deverá escolher a opção 2 para busca, e em seguida, será perguntado qual a chave que se deseja buscar.
+  A busca vai ocorrer com os seguintes passos:
 
 1. A primeira chamada passa o ponteiro nó atual para o nó raiz
 2. Se o nó atual não tiver elementos (atual.nElementos == 0), então a chave não está na arvóre e retorna zero. 
@@ -28,8 +49,30 @@ A busca vai ocorrer com os seguintes passos:
 3.2.2.1 É feita a decisão se continua pelo nó à direita ou à esquerda e de qual elemento
 3.2.2.2 A função é chamada recursivamente
 
+¹ O criterio de decisão de uma árvore depende da hierarquida de seus dados, com isso só é possível representar dados que possuam relação de hierarquia. Ex. numeros inteiros, numeros reais, letras (considerando ordem alfabética), etc. Apenas para reforçar, este trabalho pode possuir dados numericos do tipo real.
 
-/*Função INSERE*/
-bla bla bla
+
+Função INSERE
+  Na função insere, o objetivo é inserir um elemento na árvore, respeitando todas as propriedades da árvore, assim o método deve buscar a posição adequada para cada novo emento.
+  Além de buscar a opção insere deve cuidar dos casos onde não se pode mais inserir valores nó, criando novos nós e realizando promoção de chaves, se necessário.
+  Para realizar uma inserção, deve selecionar a opção 1, e então seguida, será possível informar o valor que se deseja inserir.
+  A inserção é dada com os seguintes passos:
+  
+  1. Verifica se a raiz está vazia, em caso afirmativo, insere o valor na primeira posição do nó.
+  2. Caso a raiz não esteja vazia, o método de inserção busca (pelo método acima, se existe o valor na árvore, se já existe, não insere, e retorna um erro - "ERRO: A chave ja esta na arvore").
+  3. Caso a chave ainda n exista na árvore, é chamado o método BuscaEInsere.
+  3.1 O método BuscaEInsere busca a melhor posição, segundo a hierarquia do conjunto de dados da árvore, e realiza a inserção.
+  3.1.2 A inserção dentro do método BuscaEInsere pode ser dada de duas formas:
+  3.1.2.1 A inserção é feita em um nó folha, com isso, atravéz de busca binária, o valor é inserido nó em sua posição correta.
+  3.1.2.2 A inserção é feita em um nó que contanha filhos, nesse caso é realizado uma busca binária e encontrado a melhor posição para a inserção do valor, e então, após a inserção, é reajustado todos os ponteiros filhos do nó.
+  3.2 Ainda na inserção, dependendo do local onde foi inserido, o vetor pode sofrer lotação.
+  3.2.1 No caso de lotação, o método chama a função divide, que tem por objetivo calcular a mediana dos dados do vetor, a mediana será o valor promovido, todos os valores menores que a mediana ficam no nó original, todos os valores maiores, são alocados em um novo nó.
+  3.2.2 Essa ação pode ser propagada até o nó raiz, e caso o nó raiz lote, ocorre a divisão deste nó, e uma nova raiz é criada.
+  4. Com toda a propagação das chaves promovidas, o método retorna 1, no caso de sucesso na inserção.
+  
+  
+  
+  Função SAIR
+    Ao ser escolhida a opção 3, o programa é encerrado e o terminal fechado.
 
 
