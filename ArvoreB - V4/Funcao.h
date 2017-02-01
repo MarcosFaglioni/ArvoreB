@@ -1,3 +1,4 @@
+//Este código pertence ao arquivo main.c, referente a árvore B, elaborada especialmente para a disciplina de Organização e Recuperação de Informação, ministrada pelo docente Jander Moreira, na Universidade Federal de São Carlos.
 ///FUNÇÕES///
 /*Função entradaComandoInicial
 Objetivo: Realizar a verificação e validação dos dados digitados pelo usuário em primeira instancia (ajuda ou criação da arvore)
